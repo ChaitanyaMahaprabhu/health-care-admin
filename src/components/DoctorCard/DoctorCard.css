@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css?family=Trirong|Manrope");
+
+#wallpaper {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: url(../../assets/images/3.png);
+
+  padding: 2rem;
+  overflow: hidden;
+
+  font-family: "Trirong";
+  color: white;
+}
+
+.frosted {
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+#doctorCard {
+  height: 100%;
+  width: 100%;
+  transition: all 0.5s ease-in;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 1rem;
+
+  padding: 2rem;
+}
+
+#doctorImage {
+  border-radius: 1rem;
+}
+
+#doctorInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#doctorCard:hover{
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
