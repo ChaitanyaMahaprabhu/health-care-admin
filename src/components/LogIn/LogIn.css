@@ -1,26 +1,31 @@
-#loginForm{
-    height: 70vh;
-    width: 50vw;
-    transition: all 0.5s ease-in;
-    padding: 2rem;
+#wallpaper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2rem;
+  grid-column-gap: 1rem;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  transition: all 0.5s ease-in;
 }
 
-.center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.desc {
+  transition: all 0.5s ease-in;
+  padding-left: 1rem;
+  padding-top: 3rem;
 
-    transition: all 0.5s ease-in;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-#heading{
-    font-size: 3rem;
+.userData {
+  transition: all 0.5s ease-in;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-label{
-    font-family: "Manrope";
+.userData:focus-within{
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
 }
