@@ -24,7 +24,7 @@ const LogIn = () => {
 
         <div class="userData frosted">
           <div id="loginInput">
-            <form action="/action_page.php">
+            <form>
               <div class="mb-3 mt-3">
                 <label for="username" class="form-label">
                   Username
@@ -58,7 +58,7 @@ const LogIn = () => {
                   User Type
                 </label>
                 <select
-                  className="form-select mb-4"
+                  className="form-select"
                   id="user"
                   name="user"
                   required
