@@ -8,7 +8,7 @@ const LogIn = () => {
       <div id="wallpaper">
         <div class="desc frosted">
           <div>
-            <h1 style={{ fontSize: "4rem" }}>Step In</h1>
+            <h1 style={{ fontSize: "4rem" }}>Step In.</h1>
             <h4 style={{ marginTop: "1rem" }}>
               Your one stop destination for everything health
             </h4>
@@ -33,7 +33,7 @@ const LogIn = () => {
                   type="text"
                   class="form-control"
                   id="username"
-                  placeholder="Enter your username"
+                  placeholder="Your username"
                   name="username"
                   required
                   aria-required
@@ -47,7 +47,7 @@ const LogIn = () => {
                   type="password"
                   class="form-control"
                   id="password"
-                  placeholder="Enter your password"
+                  placeholder="Your password"
                   name="password"
                   required
                   aria-required
@@ -73,7 +73,7 @@ const LogIn = () => {
                 </select>
               </div>
 
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary ps-4 pe-4 mt-3">
                 Enter
               </button>
             </form>

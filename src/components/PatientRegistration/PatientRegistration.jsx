@@ -1,8 +1,8 @@
-import "./DoctorRegistration.css";
+import "./PatientRegistration.css";
 import { context } from "../../context/SharedData";
 import { useContext, useEffect } from "react";
 
-const DoctorRegistration = () => {
+const PatientRegistration = () => {
   const sharedData = useContext(context);
 
   return (
@@ -10,11 +10,11 @@ const DoctorRegistration = () => {
       <div id="wallpaper">
         <div className="desc frosted">
           <div>
-            <h1 style={{ fontSize: "4rem" }}>Hello Doctor.</h1>
+            <h1 style={{ fontSize: "4rem" }}>Good To See You.</h1>
             <h4 style={{ marginTop: "1rem" }}>
-              We have patients waiting outside
+              Health is wealth they say,
             </h4>
-            <h4>Let's get you ready.</h4>
+            <h4>Let's get you rich.</h4>
           </div>
 
           <div id="stripes">
@@ -37,21 +37,6 @@ const DoctorRegistration = () => {
                   id="name"
                   placeholder="Enter your name"
                   name="name"
-                  required
-                  aria-required
-                />
-              </div>
-
-              <div className="mb-3 mt-3">
-                <label for="specialization" className="form-label">
-                  Specialization
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="specialization"
-                  placeholder="Your specialization"
-                  name="specialization"
                   required
                   aria-required
                 />
@@ -93,15 +78,15 @@ const DoctorRegistration = () => {
               </div>
 
               <div className="mb-3 mt-3">
-                <label for="experience" className="form-label">
-                  Experience
+                <label for="ailment" className="form-label">
+                  Ailment
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   className="form-control"
-                  id="experience"
-                  placeholder="Experience (In years)"
-                  name="experience"
+                  id="ailment"
+                  placeholder="Your ailment"
+                  name="ailment"
                   required
                   aria-required
                 />
@@ -150,4 +135,4 @@ const DoctorRegistration = () => {
   );
 };
 
-export { DoctorRegistration };
+export { PatientRegistration };
