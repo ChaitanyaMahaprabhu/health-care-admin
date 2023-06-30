@@ -7,7 +7,7 @@ import {DataContext, SharedData} from './context/SharedData';
 function App() {
   return (
     <SharedData>
-      <LogIn/>
+      <Choices/>
     </SharedData>
   );
 }
