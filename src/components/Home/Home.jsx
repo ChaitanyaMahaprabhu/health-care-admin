@@ -3,8 +3,8 @@ import "./Home.css";
 const Home = (props) => {
   return (
     <>
-      <div id="wallpaper">
-        <div id="side" class="frosted">
+      <div id="wallpaper" class = "homeGrid">
+        <div id="side" className ="frosted">
           <div id="introduction">
             <h1>Welcome To</h1>
             <h1>Healthify</h1>
@@ -20,10 +20,10 @@ const Home = (props) => {
           </div>
         </div>
 
-        <div id="signUp" class="frosted">
+        <div id="signUp" className ="frosted">
           <h1>Join Us</h1>
         </div>
-        <div id="logIn" class="frosted">
+        <div id="logIn" className ="frosted">
           <h1>Step In</h1>
         </div>
       </div>

@@ -1,0 +1,26 @@
+#loginForm{
+    height: 70vh;
+    width: 50vw;
+    transition: all 0.5s ease-in;
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.5s ease-in;
+}
+
+#heading{
+    font-size: 3rem;
+}
+
+label{
+    font-family: "Manrope";
+}
