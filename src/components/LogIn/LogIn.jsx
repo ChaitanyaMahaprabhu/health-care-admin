@@ -5,7 +5,7 @@ const LogIn = () => {
   const sharedData = useContext(context);
   return (
     <>
-      <div id="wallpaper">
+      <div id="loginWall">
         <div class="desc frosted">
           <div>
             <h1 style={{ fontSize: "4rem" }}>Step In.</h1>

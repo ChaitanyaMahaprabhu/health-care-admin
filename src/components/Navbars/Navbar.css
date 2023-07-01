@@ -1,0 +1,37 @@
+#navbar{
+    height: 15vh;
+    width: 100%;
+    padding: 1rem;
+
+    transition: all 0.5s ease-in;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#options{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    transition: all 0.2s ease-in;
+}
+
+#options li{
+    margin: 1rem 1rem 0rem 1rem;
+    font-size: 1.3rem;
+    
+}
+
+a:hover{
+    background-color: white;
+    color:black;
+}
