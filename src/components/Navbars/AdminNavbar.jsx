@@ -4,7 +4,6 @@ const AdminNavbar = (props) => {
   const name = 'Magnus';
   return (
     <>
-      <div id="wallpaper">
         <VideoBar/>
         <div id="navbar" className="frostedNavbar">
           <h1>Hello {name}!</h1>
@@ -23,7 +22,6 @@ const AdminNavbar = (props) => {
             </ul>
           </div>
         </div>
-      </div>
     </>
   );
 };

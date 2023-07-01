@@ -3,7 +3,6 @@ const PatientNavbar = (props) => {
   const name = "Magnus";
   return (
     <>
-      <div id="wallpaper">
         <VideoBar />
         <div id="navbar" className="frosted">
           <h1>Hello {name}!</h1>
@@ -22,7 +21,6 @@ const PatientNavbar = (props) => {
             </ul>
           </div>
         </div>
-      </div>
     </>
   );
 };
