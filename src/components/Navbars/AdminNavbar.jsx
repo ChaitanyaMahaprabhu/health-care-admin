@@ -1,10 +1,12 @@
 import "./Navbar.css";
+import { VideoBar } from "./VideoBar";
 const AdminNavbar = (props) => {
   const name = 'Magnus';
   return (
     <>
       <div id="wallpaper">
-        <div id="navbar" className="frosted">
+        <VideoBar/>
+        <div id="navbar" className="frostedNavbar">
           <h1>Hello {name}!</h1>
 
           <div id="navOptions">

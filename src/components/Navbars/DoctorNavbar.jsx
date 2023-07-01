@@ -1,9 +1,10 @@
 import "./Navbar.css";
 const DoctorNavbar = (props) => {
-  const name = 'Magnus';
+  const name = "Magnus";
   return (
     <>
       <div id="wallpaper">
+        <VideoBar />
         <div id="navbar" className="frosted">
           <h1>Hello {name}!</h1>
 

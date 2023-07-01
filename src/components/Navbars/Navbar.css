@@ -1,37 +1,54 @@
-#navbar{
-    height: 15vh;
-    width: 100%;
-    padding: 1rem;
-
-    transition: all 0.5s ease-in;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+#videoBar {
+  height: 15vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: url(../../assets/images/2.png);
+  border-radius: 1rem 1rem 0rem 0rem;
 }
 
-#options{
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
+#navbar {
+  height: 15vh;
+  width: 100%;
+  padding: 1rem;
+
+  transition: all 0.5s ease-in;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-a{
-    text-decoration: none;
-    color: white;
-    padding: 0.5rem;
-    border-radius: 1rem;
-    transition: all 0.2s ease-in;
+#options {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
 }
 
-#options li{
-    margin: 1rem 1rem 0rem 1rem;
-    font-size: 1.3rem;
-    
+a {
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  transition: all 0.2s ease-in;
 }
 
-a:hover{
-    background-color: white;
-    color:black;
+#options li {
+  margin: 1rem 1rem 0rem 1rem;
+  font-size: 1.3rem;
+}
+
+a:hover {
+  background-color: white;
+  color: black;
+}
+
+.frostedNavbar {
+  border-radius: 0rem 0rem 1rem 1rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-top: 0px;
 }
