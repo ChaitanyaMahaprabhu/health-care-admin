@@ -2,8 +2,11 @@ import "./AdminPage.css";
 import { AdminNavbar } from "../Navbars/AdminNavbar";
 import { DoubleStats } from "../Statistics/DoubleStats";
 import { SingleStats } from "../Statistics/SingleStats";
+import { DoctorCardAvailable } from "../DoctorCard/DoctorCard";
 
 const AdminPage = (props) => {
+  const arr = [1, 2, 3];
+
   return (
     <>
       <div id="wallpaper" style={{ overflowY: "scroll" }}>
@@ -98,6 +101,15 @@ const AdminPage = (props) => {
               <td></td>
             </tbody>
           </table>
+        </div>
+
+        <div id="activateDoctor">
+          <h1 className="frosted" style = {{padding: '1rem'}}>Doctors requesting activation.</h1>
+          <div id = "docCards">
+            {arr.map((value) => (
+              <DoctorCardAvailable />
+            ))}
+          </div>
         </div>
       </div>
     </>

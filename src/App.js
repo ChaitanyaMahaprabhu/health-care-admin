@@ -11,6 +11,7 @@ import { PatientRegistration } from './components/PatientRegistration/PatientReg
 import { DoubleStats } from './components/Statistics/DoubleStats';
 import { SingleStats } from './components/Statistics/SingleStats';
 import {DataContext, SharedData} from './context/SharedData';
+import { DoctorPage } from './components/DoctorPage/DoctorPage';
 
 function App() {
   return (
