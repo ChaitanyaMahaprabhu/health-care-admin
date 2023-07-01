@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Trirong|Manrope");
 
-#wallpaper {
+#wall {
   height: 100vh;
   width: 100vw;
   background-size: cover;
@@ -12,6 +12,10 @@
 
   font-family: "Trirong";
   color: white;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
 }
 
 .frosted {
@@ -22,3 +26,16 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
+#docInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+#infoDesc {
+  height: 50vh;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+}
