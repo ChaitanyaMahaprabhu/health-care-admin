@@ -14,7 +14,7 @@ const DoctorCardAvailable = () => {
           <h4>Age : 22</h4>
           </div>
 
-          <button className="btn btn-primary btn-lg">Choose</button>
+          <button className="btn btn-primary btn-lg mt-5">Choose</button>
         </div>
       </div>
   );
