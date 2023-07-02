@@ -134,7 +134,7 @@ const PatientRegistration = () => {
                     Choose
                   </option>
                   {sharedData.genders.map((value) => (
-                    <option name={value}>{value}</option>
+                    <option value={value.toLowerCase()}>{value}</option>
                   ))}
                 </select>
               </div>

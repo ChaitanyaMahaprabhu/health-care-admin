@@ -1,10 +1,90 @@
 import "./DoctorRegistration.css";
 import { context } from "../../context/SharedData";
-import { useContext, useEffect } from "react";
+import { useContext} from "react";
+import { useState, useEffect } from "react";
 
 const DoctorRegistration = () => {
   const sharedData = useContext(context);
 
+  const [doctor, setDoctor] = useState({
+    name: "",
+    age: "",
+    gender: "",
+    specialization: "",
+    experience: "",
+    request: "no",
+    status: "inactive"
+  });
+
+  const [doctorLogin, setDoctorLogin] = useState({
+    userName: "",
+    userEmail: "",
+    password: "",
+    role: "Doctor",
+  });
+
+  const changeHandler = (event) => {
+    if (
+      event.target.name != "userEmail" &&
+      event.target.name != "userName" &&
+      event.target.name != "password"
+    ) {
+      setDoctor((prev) => ({
+        ...prev,
+        [event.target.name]: event.target.value,
+      }));
+    } else {
+      setDoctorLogin((prev) => ({
+        ...prev,
+        [event.target.name]: event.target.value,
+      }));
+    }
+  };
+
+  const clickHandler = (event) => {
+    if (
+      parseInt(doctor["age"], 10) < 17 ||
+      parseInt(doctor["age"], 10) > 100
+    ) {
+      alert(
+        "Legal adults allowed and above 100 of age too old for the website!"
+      );
+    }else if (Object.values(doctor).includes("") != true && Object.values(doctorLogin).includes("") != true){
+      console.log(doctor);
+      post();
+      postUser();
+      alert("You have been registered successfully!");
+      window.location = "/";
+    }
+  };
+
+  const post = () => {
+    fetch("https://localhost:7210/api/Doctors", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(doctor),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const postUser = () => {
+    fetch("https://localhost:7210/api/Users", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(doctorLogin),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <>
       <div id="doctorWallpaper">
@@ -39,6 +119,7 @@ const DoctorRegistration = () => {
                   name="name"
                   required
                   aria-required
+                  onChange={changeHandler}
                 />
               </div>
 
@@ -54,6 +135,7 @@ const DoctorRegistration = () => {
                   name="specialization"
                   required
                   aria-required
+                  onChange={changeHandler}
                 />
               </div>
 
@@ -67,12 +149,13 @@ const DoctorRegistration = () => {
                   name="gender"
                   required
                   aria-required
+                  onChange={changeHandler}
                 >
                   <option disabled selected>
                     Choose
                   </option>
                   {sharedData.genders.map((value) => (
-                    <option name={value}>{value}</option>
+                    <option value={value.toLowerCase()}>{value}</option>
                   ))}
                 </select>
               </div>
@@ -89,6 +172,7 @@ const DoctorRegistration = () => {
                   name="age"
                   required
                   aria-required
+                  onChange={changeHandler}
                 />
               </div>
 
@@ -104,37 +188,40 @@ const DoctorRegistration = () => {
                   name="experience"
                   required
                   aria-required
+                  onChange={changeHandler}
                 />
               </div>
               <div className="mb-3 mt-3">
-                <label for="email" className="form-label">
+                <label for="userEmail" className="form-label">
                   Email ID
                 </label>
                 <input
                   type="email"
                   className="form-control"
-                  id="email"
+                  id="userEmail"
                   placeholder="Enter your email ID"
-                  name="email"
+                  name="userEmail"
                   required
                   aria-required
                   pattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                  onChange={changeHandler}
                 />
               </div>
 
               <div id="userPass">
                 <div className="mb-3 mt-3">
-                  <label for="username" className="form-label">
+                  <label for="userName" className="form-label">
                     Username
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="username"
+                    id="userName"
                     placeholder="Username"
-                    name="username"
+                    name="userName"
                     required
                     aria-required
+                    onChange = {changeHandler}
                   />
                 </div>
 
@@ -150,11 +237,12 @@ const DoctorRegistration = () => {
                     name="password"
                     required
                     aria-required
+                    onChange = {changeHandler}
                   />
                 </div>
               </div>
 
-              <button type="submit" className="btn btn-primary ps-4 pe-4">
+              <button type="button" className="btn btn-primary ps-4 pe-4" onClick={clickHandler}>
                 Sign Up
               </button>
             </form>

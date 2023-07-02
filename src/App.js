@@ -16,7 +16,7 @@ import { DoctorPage } from './components/DoctorPage/DoctorPage';
 function App() {
   return (
     <SharedData>
-      <PatientRegistration/>
+      <AdminPage/>
     </SharedData>
   );
 }
