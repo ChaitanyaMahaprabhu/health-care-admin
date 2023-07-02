@@ -7,13 +7,11 @@ const PatientRegistration = () => {
 
   return (
     <>
-      <div id="wallpaper">
+      <div id="patientWallpaper">
         <div className="desc frosted">
           <div>
             <h1 style={{ fontSize: "4rem" }}>Good To See You.</h1>
-            <h4 style={{ marginTop: "1rem" }}>
-              Health is wealth they say,
-            </h4>
+            <h4 style={{ marginTop: "1rem" }}>Health is wealth they say,</h4>
             <h4>Let's get you rich.</h4>
           </div>
 
@@ -87,6 +85,20 @@ const PatientRegistration = () => {
                   id="ailment"
                   placeholder="Your ailment"
                   name="ailment"
+                  required
+                  aria-required
+                />
+              </div>
+              <div className="mb-3 mt-3">
+                <label for="email" className="form-label">
+                  Email ID
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  placeholder="Enter your email ID"
+                  name="email"
                   required
                   aria-required
                 />

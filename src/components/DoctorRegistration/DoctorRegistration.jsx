@@ -7,7 +7,7 @@ const DoctorRegistration = () => {
 
   return (
     <>
-      <div id="wallpaper">
+      <div id="doctorWallpaper">
         <div className="desc frosted">
           <div>
             <h1 style={{ fontSize: "4rem" }}>Hello Doctor.</h1>
@@ -102,6 +102,20 @@ const DoctorRegistration = () => {
                   id="experience"
                   placeholder="Experience (In years)"
                   name="experience"
+                  required
+                  aria-required
+                />
+              </div>
+              <div className="mb-3 mt-3">
+                <label for="email" className="form-label">
+                  Email ID
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  placeholder="Enter your email ID"
+                  name="email"
                   required
                   aria-required
                 />
