@@ -17,7 +17,7 @@ const SharedData = (props) => {
       
       const getDoctors = async () => {
         try {
-          const response = await fetch("https://localhost:7210/api/Doctors");
+          const response = await fetch("https://localhost:7261/api/Doctors");
           if (response.ok) {
             const data = await response.json();
             setDoctors(data);
@@ -31,7 +31,7 @@ const SharedData = (props) => {
 
       const getPatients = async () => {
         try {
-          const response = await fetch("https://localhost:7210/api/Patients");
+          const response = await fetch("https://localhost:7261/api/Patients");
           if (response.ok) {
             const data = await response.json();
             setPatients(data);

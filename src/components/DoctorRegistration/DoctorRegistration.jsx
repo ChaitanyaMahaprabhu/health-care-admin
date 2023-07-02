@@ -1,6 +1,6 @@
 import "./DoctorRegistration.css";
 import { context } from "../../context/SharedData";
-import { useContext} from "react";
+import { useContext } from "react";
 import { useState, useEffect } from "react";
 
 const DoctorRegistration = () => {
@@ -13,7 +13,7 @@ const DoctorRegistration = () => {
     specialization: "",
     experience: "",
     request: "no",
-    status: "inactive"
+    status: "inactive",
   });
 
   const [doctorLogin, setDoctorLogin] = useState({
@@ -24,9 +24,18 @@ const DoctorRegistration = () => {
   });
 
   const changeHandler = (event) => {
-    if (
+    if (event.target.name === "userName") {
+      setDoctor((prev) => ({
+        ...prev,
+        [event.target.name]: event.target.value,
+      }));
+
+      setDoctorLogin((prev) => ({
+        ...prev,
+        [event.target.name]: event.target.value,
+      }));
+    } else if (
       event.target.name != "userEmail" &&
-      event.target.name != "userName" &&
       event.target.name != "password"
     ) {
       setDoctor((prev) => ({
@@ -42,14 +51,11 @@ const DoctorRegistration = () => {
   };
 
   const clickHandler = (event) => {
-    if (
-      parseInt(doctor["age"], 10) < 17 ||
-      parseInt(doctor["age"], 10) > 100
-    ) {
+    if (parseInt(doctor["age"], 10) < 17 || parseInt(doctor["age"], 10) > 100) {
       alert(
         "Legal adults allowed and above 100 of age too old for the website!"
       );
-    }else if (Object.values(doctor).includes("") != true && Object.values(doctorLogin).includes("") != true){
+    } else {
       console.log(doctor);
       post();
       postUser();
@@ -59,7 +65,7 @@ const DoctorRegistration = () => {
   };
 
   const post = () => {
-    fetch("https://localhost:7210/api/Doctors", {
+    fetch("https://localhost:7261/api/Doctors", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(doctor),
@@ -73,7 +79,7 @@ const DoctorRegistration = () => {
   };
 
   const postUser = () => {
-    fetch("https://localhost:7210/api/Users", {
+    fetch("https://localhost:7261/api/Users", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(doctorLogin),
@@ -85,6 +91,7 @@ const DoctorRegistration = () => {
         console.log(err);
       });
   };
+
   return (
     <>
       <div id="doctorWallpaper">
@@ -203,7 +210,6 @@ const DoctorRegistration = () => {
                   name="userEmail"
                   required
                   aria-required
-                  pattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                   onChange={changeHandler}
                 />
               </div>
@@ -221,7 +227,7 @@ const DoctorRegistration = () => {
                     name="userName"
                     required
                     aria-required
-                    onChange = {changeHandler}
+                    onChange={changeHandler}
                   />
                 </div>
 
@@ -237,12 +243,16 @@ const DoctorRegistration = () => {
                     name="password"
                     required
                     aria-required
-                    onChange = {changeHandler}
+                    onChange={changeHandler}
                   />
                 </div>
               </div>
 
-              <button type="button" className="btn btn-primary ps-4 pe-4" onClick={clickHandler}>
+              <button
+                type="button"
+                className="btn btn-primary ps-4 pe-4"
+                onClick={clickHandler}
+              >
                 Sign Up
               </button>
             </form>

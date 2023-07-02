@@ -37,7 +37,7 @@ const AdminPage = (props) => {
 
   const fetchDoctors = async () => {
     try {
-      const response = await fetch("https://localhost:7210/api/Doctors");
+      const response = await fetch("https://localhost:7261/api/Doctors");
       if (response.ok) {
         const data = await response.json();
         setDoctors(data);
@@ -51,7 +51,7 @@ const AdminPage = (props) => {
 
   const fetchPatients = async () => {
     try {
-      const response = await fetch("https://localhost:7210/api/Patients");
+      const response = await fetch("https://localhost:7261/api/Patients");
       if (response.ok) {
         const data = await response.json();
         setPatients(data);
@@ -66,7 +66,7 @@ const AdminPage = (props) => {
   const fetchDoctorById = async () => {
     try {
       const response = await fetch(
-        `https://localhost:7210/api/Doctors/${doctorId}`
+        `https://localhost:7261/api/Doctors/${doctorId}`
       );
       if (response.ok) {
         const data = await response.json();
@@ -82,7 +82,7 @@ const AdminPage = (props) => {
   const fetchPatientById = async () => {
     try {
       const response = await fetch(
-        `https://localhost:7210/api/Patients/${patientId}`
+        `https://localhost:7261/api/Patients/${patientId}`
       );
       if (response.ok) {
         const data = await response.json();
@@ -103,7 +103,7 @@ const AdminPage = (props) => {
   const deletePatient = async (id) => {
     try {
       const response = await fetch(
-        `https://localhost:7210/api/Patients/${id}`,
+        `https://localhost:7261/api/Patients/${id}`,
         {
           method: "DELETE",
         }
@@ -121,7 +121,7 @@ const AdminPage = (props) => {
 
   const deleteDoctor = async (id) => {
     try {
-      const response = await fetch(`https://localhost:7210/api/Doctors/${id}`, {
+      const response = await fetch(`https://localhost:7261/api/Doctors/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {
@@ -137,7 +137,7 @@ const AdminPage = (props) => {
 
   const updateDoctorToggle = async (id) => {
     try {
-      const response = await fetch(`https://localhost:7210/api/Doctors/${id}`, {
+      const response = await fetch(`https://localhost:7261/api/Doctors/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

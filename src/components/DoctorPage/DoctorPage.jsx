@@ -1,6 +1,6 @@
 import "./DoctorPage.css";
 import { DoctorNavbar } from "../../components/Navbars/DoctorNavbar";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { context } from "../../context/SharedData";
 
 const DoctorPage = (props) => {
@@ -16,7 +16,7 @@ const DoctorPage = (props) => {
           <button className="btn btn-warning btn-lg">Request Activation</button>
         </div>
 
-        <div className="container-fluid bg-light" id="getDoctors">
+        <div className="container-fluid bg-light" id="getDoctors" style = {{marginTop: '2rem'}}>
           <table className="table">
             <thead>
               <tr>

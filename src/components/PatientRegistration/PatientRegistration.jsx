@@ -55,7 +55,7 @@ const PatientRegistration = () => {
   };
 
   const post = () => {
-    fetch("https://localhost:7210/api/Patients", {
+    fetch("https://localhost:7261/api/Patients", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(patient),
@@ -69,7 +69,7 @@ const PatientRegistration = () => {
   };
 
   const postUser = () => {
-    fetch("https://localhost:7210/api/Users", {
+    fetch("https://localhost:7261/api/Users", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(patientLogin),
