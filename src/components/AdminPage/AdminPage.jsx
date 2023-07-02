@@ -15,10 +15,16 @@ const AdminPage = (props) => {
   const [patientIdData, setPatientIdData] = useState([{}]);
   const [doctorIdData, setDoctorIdData] = useState([{}]);
   const [doctorToggle, setDoctorToggle] = useState({});
+  const [patients, setPatients] = useState([]);
+  const [doctors, setDoctors] = useState([]);
 
   useEffect(() => {
+    fetchDoctors(sharedData.doctors);
+  }, [doctors]);
 
-  }, [sharedData.doctors, sharedData.patients]);
+  useEffect(() => {
+    fetchPatients(sharedData.patients);
+  }, [patients]);
 
   useEffect(() => {
     fetchDoctorById();
@@ -27,6 +33,34 @@ const AdminPage = (props) => {
   useEffect(() => {
     fetchPatientById();
   }, [patientId]);
+
+  const fetchDoctors = async () => {
+    try {
+      const response = await fetch("https://localhost:7210/api/Doctors");
+      if (response.ok) {
+        const data = await response.json();
+        setDoctors(data);
+      } else {
+        console.error("Error fetching instructors:", response.statusText);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const fetchPatients = async () => {
+    try {
+      const response = await fetch("https://localhost:7210/api/Patients");
+      if (response.ok) {
+        const data = await response.json();
+        setPatients(data);
+      } else {
+        console.error("Error fetching instructors:", response.statusText);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const fetchDoctorById = async () => {
     try {
@@ -75,7 +109,7 @@ const AdminPage = (props) => {
       );
       if (response.ok) {
         console.log("Patient deleted successfully");
-        sharedData.patients.filter((patient) => patient.id !== id);
+        patients.filter((patient) => patient.id !== id);
       } else {
         console.error("Error deleting patient:", response.statusText);
       }
@@ -91,7 +125,7 @@ const AdminPage = (props) => {
       });
       if (response.ok) {
         console.log("Doctor data deleted successfully");
-        sharedData.doctors.filter((doctor) => doctor.id !== id);
+        doctors.filter((doctor) => doctor.id !== id);
       } else {
         console.error("Error deleting doctor:", response.statusText);
       }
@@ -112,9 +146,7 @@ const AdminPage = (props) => {
       if (response.ok) {
         console.log("Doctor status updated successfully");
         console.log(doctorToggle);
-        sharedData.doctors.map((doctor) =>
-          doctor.id === id ? doctorToggle : doctor
-        );
+        doctors.map((doctor) => (doctor.id === id ? doctorToggle : doctor));
       } else {
         console.error("Error updating doctor status:", response.statusText);
         console.log(doctorToggle);
@@ -154,6 +186,27 @@ const AdminPage = (props) => {
     }
   };
 
+  let Dmale = 0;
+  let Dfemale = 0;
+  for (let doctor of doctors) {
+    if (doctor.gender.toLowerCase() === "male") Dmale += 1;
+    else Dfemale += 1;
+  }
+
+  let Pmale = 0;
+  let Pfemale = 0;
+  for (let patient of patients) {
+    if (patient.gender.toLowerCase() === "male") Pmale += 1;
+    else Pfemale += 1;
+  }
+
+  let experience = 0;
+  let count = 0;
+  for (let doctor of doctors) {
+    experience += parseInt(doctor.experience, 10);
+    count += 1;
+  }
+
   return (
     <>
       <div id="wallpaper" style={{ overflowY: "scroll" }}>
@@ -164,7 +217,14 @@ const AdminPage = (props) => {
             <h4 id="statsText" className="frosted">
               Doctors
             </h4>
-            <DoubleStats />
+            <DoubleStats
+              startColor={"steelblue"}
+              endColor={"pink"}
+              stTotal={Dmale + 20}
+              enTotal={Dfemale + 20}
+              startText={"Male"}
+              endText={"Female"}
+            />
 
             <h4
               id="statsText"
@@ -173,14 +233,26 @@ const AdminPage = (props) => {
             >
               Patients
             </h4>
-            <DoubleStats />
+            <DoubleStats
+              startColor={"steelblue"}
+              endColor={"pink"}
+              stTotal={Pmale + 20}
+              enTotal={Pfemale + 20}
+              startText={"Male"}
+              endText={"Female"}
+            />
           </div>
 
           <div style={{ marginTop: "2rem" }}>
             <h4 id="statsText" className="frosted">
               Average Experience
             </h4>
-            <SingleStats />
+            <SingleStats
+              color={"orange"}
+              data={experience / count}
+              startText={"0"}
+              endText={"100"}
+            />
           </div>
         </div>
 
@@ -203,7 +275,7 @@ const AdminPage = (props) => {
                 </tr>
               </thead>
               <tbody>
-                {sharedData.doctors.map((data) => (
+                {doctors.map((data) => (
                   <tr>
                     <td>{data.id}</td>
                     <td>{data.name}</td>
@@ -252,7 +324,7 @@ const AdminPage = (props) => {
                 </tr>
               </thead>
               <tbody>
-                {sharedData.patients.map((data) => (
+                {patients.map((data) => (
                   <tr>
                     <td>{data.id}</td>
                     <td>{data.name}</td>
@@ -286,7 +358,7 @@ const AdminPage = (props) => {
                 id="doctorID"
                 name="doctorID"
                 onChange={handleInputChange}
-                value = {doctorId}
+                value={doctorId}
               />
             </div>
           </form>
@@ -332,7 +404,7 @@ const AdminPage = (props) => {
                 id="patientID"
                 name="patientID"
                 onChange={handleInputChange}
-                value = {patientId}
+                value={patientId}
               />
             </div>
           </form>
@@ -347,15 +419,15 @@ const AdminPage = (props) => {
               </tr>
             </thead>
             <tbody>
-            {patientIdData.map((data) => (
-                  <tr>
-                    <td>{data.id}</td>
-                    <td>{data.name}</td>
-                    <td>{data.age}</td>
-                    <td>{data.gender}</td>
-                    <td>{data.ailment}</td>
-                  </tr>
-                ))}
+              {patientIdData.map((data) => (
+                <tr>
+                  <td>{data.id}</td>
+                  <td>{data.name}</td>
+                  <td>{data.age}</td>
+                  <td>{data.gender}</td>
+                  <td>{data.ailment}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

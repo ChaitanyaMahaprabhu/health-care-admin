@@ -9,21 +9,21 @@ const DoubleStats = (props) => {
             <div
               id="start"
               style={{
-                backgroundColor: `blue`,
-                width: `20vw`,
+                backgroundColor: `${props.startColor}`,
+                width: `${startWidth}%`,
               }}
             ></div>
             <div
               id="end"
               style={{
-                backgroundColor: `pink`,
-                width: `40vw`,
+                backgroundColor: `${props.endColor}`,
+                width: `${endWidth}%`,
               }}
             ></div>
           </div>
           <div id="graphText">
-            <h5>Male</h5>
-            <h5>Female</h5>
+            <h5>{props.startText}</h5>
+            <h5>{props.endText}</h5>
           </div>
         </div>
     </>

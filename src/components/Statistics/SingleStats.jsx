@@ -1,7 +1,7 @@
 import { DoubleStats } from "./DoubleStats";
 import "./Stats.css";
 const SingleStats = (props) => {
-  const width = 12;
+  const width = props.data;
   return (
     <>
         <div id="graph" class="frosted">
@@ -9,14 +9,15 @@ const SingleStats = (props) => {
             <div
               id="start"
               style={{
-                backgroundColor: `red`,
-                width: `20vw`,
+                backgroundColor: `${props.color}`,
+                width: `${width}%`,
               }}
+              title = {Math.round(width)}
             ></div>
           </div>
           <div id="graphText">
-            <h5>0</h5>
-            <h5>100</h5>
+            <h5>{props.startText}</h5>
+            <h5>{props.endText}</h5>
           </div>
         </div>
     </>
