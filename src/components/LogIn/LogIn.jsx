@@ -1,8 +1,26 @@
 import "./LogIn.css";
 import { context } from "../../context/SharedData";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 const LogIn = () => {
   const sharedData = useContext(context);
+  const [userLogin, setUserLogin] = useState({
+    userName: "",
+    userEmail: "",
+    password: "",
+    role: "",
+  });
+  
+  const changeHandler = (event) => {
+      setUserLogin((prev) => ({
+        ...prev,
+        [event.target.name]: event.target.value,
+      }));
+    }
+
+  const clickHandler = (event) => {
+    console.log(userLogin);
+  }
+
   return (
     <>
       <div id="loginWall">
@@ -25,18 +43,35 @@ const LogIn = () => {
         <div class="userData frosted">
           <div id="loginInput">
             <form>
+            <div className="mb-3 mt-3">
+                <label for="userEmail" className="form-label">
+                  Email ID
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="userEmail"
+                  placeholder="Enter your email ID"
+                  name="userEmail"
+                  required
+                  aria-required
+                  onChange={changeHandler}
+                />
+              </div>
+
               <div class="mb-3 mt-3">
-                <label for="username" class="form-label">
+                <label for="userName" class="form-label">
                   Username
                 </label>
                 <input
                   type="text"
                   class="form-control"
-                  id="username"
+                  id="userName"
                   placeholder="Your username"
-                  name="username"
+                  name="userName"
                   required
                   aria-required
+                  onChange={changeHandler}
                 />
               </div>
               <div class="mb-3">
@@ -51,18 +86,20 @@ const LogIn = () => {
                   name="password"
                   required
                   aria-required
+                  onChange={changeHandler}
                 />
               </div>
               <div class="mb-3">
-                <label for="user" className="form-label">
+                <label for="role" className="form-label">
                   User Type
                 </label>
                 <select
                   className="form-select"
-                  id="user"
-                  name="user"
+                  id="role"
+                  name="role"
                   required
                   aria-required
+                  onChange={changeHandler}
                 >
                   <option disabled selected>
                     Choose
@@ -73,7 +110,7 @@ const LogIn = () => {
                 </select>
               </div>
 
-              <button type="submit" className="btn btn-primary ps-4 pe-4 mt-3">
+              <button type="button" className="btn btn-primary ps-4 pe-4 mt-3" onClick={clickHandler}>
                 Enter
               </button>
             </form>
