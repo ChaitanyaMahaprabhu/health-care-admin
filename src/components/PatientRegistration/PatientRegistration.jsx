@@ -51,6 +51,8 @@ const PatientRegistration = () => {
       postUser();
       alert("You have been registered successfully!");
       window.location = "/";
+    }else{
+      alert("We do not believe in empty forms!");
     }
   };
 
@@ -84,7 +86,7 @@ const PatientRegistration = () => {
 
   return (
     <>
-      <div id="patientWallpaper">
+      <div id="patientWallpaper" style={{ overflowY: "scroll" }}>
         <div className="desc frosted">
           <div>
             <h1 style={{ fontSize: "4rem" }}>Good To See You.</h1>

@@ -39,7 +39,7 @@ a {
   font-size: 1.3rem;
 }
 
-a:hover {
+li a:hover {
   background-color: white;
   color: black;
 }

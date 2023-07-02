@@ -21,10 +21,10 @@ const Home = (props) => {
         </div>
 
         <div id="signUp" className ="frosted">
-          <h1>Join Us</h1>
+          <h1><a href = "/Choices">Join Us</a></h1>
         </div>
         <div id="logIn" className ="frosted">
-          <h1>Step In</h1>
+          <h1><a href = "/Login">Step In</a></h1>
         </div>
       </div>
     </>

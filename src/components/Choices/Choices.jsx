@@ -11,10 +11,10 @@ const Choices = () => {
         </div>
         <div class="choices">
           <div class="frosted doctor">
-            <h1>I am a Doctor</h1>
+            <h1><a href = "/DoctorRegistration">I am a Doctor</a></h1>
           </div>
           <div class="frosted patient">
-            <h1>I am a Patient</h1>
+            <h1><a href = "/PatientRegistration">I am a Patient</a></h1>
           </div>
         </div>
       </div>

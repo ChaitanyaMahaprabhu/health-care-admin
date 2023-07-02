@@ -55,12 +55,14 @@ const DoctorRegistration = () => {
       alert(
         "Legal adults allowed and above 100 of age too old for the website!"
       );
-    } else {
+    }else if (Object.values(doctor).includes("") != true && Object.values(doctorLogin).includes("") != true){
       console.log(doctor);
       post();
       postUser();
       alert("You have been registered successfully!");
       window.location = "/";
+    }else{
+      alert("We do not believe in empty forms!");
     }
   };
 
@@ -94,7 +96,7 @@ const DoctorRegistration = () => {
 
   return (
     <>
-      <div id="doctorWallpaper">
+      <div id="doctorWallpaper" style={{ overflowY: "scroll" }}>
         <div className="desc frosted">
           <div>
             <h1 style={{ fontSize: "4rem" }}>Hello Doctor.</h1>

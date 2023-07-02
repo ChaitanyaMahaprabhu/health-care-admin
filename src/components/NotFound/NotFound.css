@@ -1,0 +1,29 @@
+#nf {
+  border: 0.5rem solid black;
+  animation: nf 5s infinite;
+  height: 40vh;
+  width: 60vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes nf {
+  0% {
+    background-color: black;
+    color:white;
+  }
+
+  50% {
+    background-color: white;
+    border-color: black;
+    color: black;
+  }
+
+  100% {
+    background-color: black;
+    color:white;
+  }
+}
+
