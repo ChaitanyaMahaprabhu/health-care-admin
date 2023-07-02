@@ -1,9 +1,86 @@
 import "./PatientRegistration.css";
 import { context } from "../../context/SharedData";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
+import { useState, useEffect } from "react";
 
 const PatientRegistration = () => {
   const sharedData = useContext(context);
+  const [patient, setPatient] = useState({
+    name: "",
+    age: "",
+    gender: "",
+    ailment: "",
+  });
+
+  const [patientLogin, setPatientLogin] = useState({
+    userName: "",
+    userEmail: "",
+    password: "",
+    role: "Patient",
+  });
+
+  const changeHandler = (event) => {
+    if (
+      event.target.name != "userEmail" &&
+      event.target.name != "userName" &&
+      event.target.name != "password"
+    ) {
+      setPatient((prev) => ({
+        ...prev,
+        [event.target.name]: event.target.value,
+      }));
+    } else {
+      setPatientLogin((prev) => ({
+        ...prev,
+        [event.target.name]: event.target.value,
+      }));
+    }
+  };
+
+  const clickHandler = (event) => {
+    if (
+      parseInt(patient["age"], 10) < 17 ||
+      parseInt(patient["age"], 10) > 100
+    ) {
+      alert(
+        "Legal adults allowed and above 100 of age too old for the website!"
+      );
+    }else if (Object.values(patient).includes("") != true && Object.values(patientLogin).includes("") != true){
+      console.log(patient);
+      post();
+      postUser();
+      alert("You have been registered successfully!");
+      window.location = "/";
+    }
+  };
+
+  const post = () => {
+    fetch("https://localhost:7210/api/Patients", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(patient),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const postUser = () => {
+    fetch("https://localhost:7210/api/Users", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(patientLogin),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <>
@@ -37,6 +114,7 @@ const PatientRegistration = () => {
                   name="name"
                   required
                   aria-required
+                  onChange={changeHandler}
                 />
               </div>
 
@@ -50,6 +128,7 @@ const PatientRegistration = () => {
                   name="gender"
                   required
                   aria-required
+                  onChange={changeHandler}
                 >
                   <option disabled selected>
                     Choose
@@ -72,6 +151,7 @@ const PatientRegistration = () => {
                   name="age"
                   required
                   aria-required
+                  onChange={changeHandler}
                 />
               </div>
 
@@ -87,36 +167,40 @@ const PatientRegistration = () => {
                   name="ailment"
                   required
                   aria-required
+                  onChange={changeHandler}
                 />
               </div>
               <div className="mb-3 mt-3">
-                <label for="email" className="form-label">
+                <label for="userEmail" className="form-label">
                   Email ID
                 </label>
                 <input
                   type="email"
                   className="form-control"
-                  id="email"
+                  id="userEmail"
                   placeholder="Enter your email ID"
-                  name="email"
+                  name="userEmail"
                   required
                   aria-required
+                  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                  onChange={changeHandler}
                 />
               </div>
 
               <div id="userPass">
                 <div className="mb-3 mt-3">
-                  <label for="username" className="form-label">
+                  <label for="userName" className="form-label">
                     Username
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="username"
+                    id="userName"
                     placeholder="Username"
-                    name="username"
+                    name="userName"
                     required
                     aria-required
+                    onChange={changeHandler}
                   />
                 </div>
 
@@ -132,11 +216,16 @@ const PatientRegistration = () => {
                     name="password"
                     required
                     aria-required
+                    onChange={changeHandler}
                   />
                 </div>
               </div>
 
-              <button type="submit" className="btn btn-primary ps-4 pe-4">
+              <button
+                type="button"
+                className="btn btn-primary ps-4 pe-4"
+                onClick={clickHandler}
+              >
                 Sign Up
               </button>
             </form>
