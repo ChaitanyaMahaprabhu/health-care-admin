@@ -11,13 +11,16 @@ const AdminNavbar = (props) => {
           <div id="navOptions">
             <ul id="options">
               <li>
-                <a href="#">Statistics</a>
+                <a href="#adminStats">Statistics</a>
               </li>
               <li>
-                <a href="#">Data</a>
+                <a href="#doctorTable">Doctors</a>
               </li>
               <li>
-                <a href="#">Contact Us</a>
+                <a href="#patientTable">Patients</a>
+              </li>
+              <li>
+                <a href="#getDoctorById">Data using ID</a>
               </li>
             </ul>
           </div>

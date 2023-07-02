@@ -6,6 +6,7 @@ import { DoctorCardAvailable } from "../DoctorCard/DoctorCard";
 import { context } from "../../context/SharedData";
 import { useContext } from "react";
 import { useState, useEffect } from "react";
+import { Footer } from "../Footer/Footer";
 
 const AdminPage = (props) => {
   const sharedData = useContext(context);
@@ -256,7 +257,7 @@ const AdminPage = (props) => {
           </div>
         </div>
 
-        <div style={{ marginTop: "4rem" }}>
+        <div style={{ marginTop: "4rem" }} id="doctorTable">
           <h4 id="statsText" className="frosted">
             Doctors
           </h4>
@@ -283,8 +284,20 @@ const AdminPage = (props) => {
                     <td>{data.gender}</td>
                     <td>{data.specialization}</td>
                     <td>{data.experience}</td>
-                    <td>{data.request}</td>
-                    <td>{data.status}</td>
+                    <td style={{ color: "white", fontSize: "1.5rem" }}>
+                      {data.request === "yes" ? "🙏" : "🚫"}
+                    </td>
+                    <td
+                      id="status"
+                      style={{
+                        color: "white",
+                        backgroundColor: `${
+                          data.status === "active" ? "green" : "red"
+                        }`,
+                      }}
+                    >
+                      {data.status === "active" ? "👍" : "👎"}
+                    </td>
                     <td>
                       <button
                         className="btn btn-danger"
@@ -308,7 +321,7 @@ const AdminPage = (props) => {
           </div>
         </div>
 
-        <div style={{ marginTop: "2rem" }}>
+        <div style={{ marginTop: "2rem" }} id="patientTable">
           <h4 id="statsText" className="frosted">
             Patients
           </h4>
@@ -431,6 +444,8 @@ const AdminPage = (props) => {
             </tbody>
           </table>
         </div>
+
+        <Footer/>
       </div>
     </>
   );
