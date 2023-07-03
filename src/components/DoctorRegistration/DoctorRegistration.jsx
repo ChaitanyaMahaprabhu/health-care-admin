@@ -103,7 +103,7 @@ const DoctorRegistration = () => {
   return (
     <>
       <div id="doctorWallpaper" style={{ overflowY: "scroll" }}>
-        <div className="desc frosted">
+        <div className="desc frostedDoc">
           <div>
             <h1 style={{ fontSize: "4rem" }}>Hello Doctor.</h1>
             <h4 style={{ marginTop: "1rem" }}>
@@ -119,7 +119,7 @@ const DoctorRegistration = () => {
           </div>
         </div>
 
-        <div className="userData frosted">
+        <div className="userData frostedDoc">
           <div id="loginInput">
             <form>
               <div className="mb-3 mt-3">

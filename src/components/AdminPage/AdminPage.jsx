@@ -215,7 +215,7 @@ const AdminPage = (props) => {
 
   return (
     <>
-      <div id="wallpaper" style={{ overflowY: "scroll" }}>
+      <div id="adminWallpaper" style={{ overflowY: "scroll" }}>
         <AdminNavbar />
         <ToastContainer/>
         <div id="adminStats">
