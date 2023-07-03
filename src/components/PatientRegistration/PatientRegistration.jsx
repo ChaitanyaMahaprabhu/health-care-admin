@@ -2,6 +2,9 @@ import "./PatientRegistration.css";
 import { context } from "../../context/SharedData";
 import { useContext } from "react";
 import { useState, useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import {specializations} from "../../constants/constants";
 
 const PatientRegistration = () => {
   const sharedData = useContext(context);
@@ -42,7 +45,7 @@ const PatientRegistration = () => {
       parseInt(patient["age"], 10) < 17 ||
       parseInt(patient["age"], 10) > 100
     ) {
-      alert(
+      toast(
         "Legal adults allowed and above 100 of age too old for the website!"
       );
     }else if (Object.values(patient).includes("") != true && Object.values(patientLogin).includes("") != true){
@@ -52,7 +55,7 @@ const PatientRegistration = () => {
       alert("You have been registered successfully!");
       window.location = "/";
     }else{
-      alert("We do not believe in empty forms!");
+      toast("We do not believe in empty forms!");
     }
   };
 
@@ -230,6 +233,7 @@ const PatientRegistration = () => {
               >
                 Sign Up
               </button>
+              <ToastContainer/>
             </form>
           </div>
         </div>

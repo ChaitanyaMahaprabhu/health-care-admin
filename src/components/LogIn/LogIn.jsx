@@ -1,7 +1,9 @@
 import "./LogIn.css";
 import { context } from "../../context/SharedData";
 import { useContext, useEffect, useState } from "react";
-import {Link, redirect} from 'react-router-dom';
+import { Link, redirect } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LogIn = () => {
   const sharedData = useContext(context);
@@ -26,35 +28,33 @@ const LogIn = () => {
         return res;
       })
       .then((resp) => {
-        if(resp.status >= 200 && resp.status < 300){
-          alert("Logged in successfully!");
+        if (resp.status >= 200 && resp.status < 300) {
+          toast("Logged in successfully!");
           redirect();
-        }
-        else{
-          alert("Wrong credentials entered!");
+        } else {
+          toast("Wrong credentials entered!");
         }
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  
+
   const changeHandler = (event) => {
-      setUserLogin((prev) => ({
-        ...prev,
-        [event.target.name]: event.target.value,
-      }));
-    }
+    setUserLogin((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
+  };
 
   const clickHandler = (event) => {
-    if (Object.values(userLogin).includes("") != true){
-    console.log(userLogin);
-    post();
+    if (Object.values(userLogin).includes("") != true) {
+      console.log(userLogin);
+      post();
+    } else {
+      toast("Login requires all data!");
     }
-    else{
-      alert("Login requires all data!");
-    }
-  }
+  };
 
   return (
     <>
@@ -78,7 +78,7 @@ const LogIn = () => {
         <div class="userData frosted">
           <div id="loginInput">
             <form>
-            <div className="mb-3 mt-3">
+              <div className="mb-3 mt-3">
                 <label for="userEmail" className="form-label">
                   Email ID
                 </label>
@@ -145,15 +145,23 @@ const LogIn = () => {
                 </select>
               </div>
 
-              <button type="button" className="btn btn-success ps-4 pe-4 mt-3" onClick={clickHandler}>
+              <button
+                type="button"
+                className="btn btn-success ps-4 pe-4 mt-3"
+                onClick={clickHandler}
+              >
                 Enter
               </button>
-              <Link to = "/">
-              <button type="button" className="btn btn-secondary ps-4 pe-4 mt-3">
-                Home
-              </button>
+              <Link to="/">
+                <button
+                  type="button"
+                  className="btn btn-secondary ps-4 pe-4 mt-3"
+                >
+                  Home
+                </button>
               </Link>
             </form>
+            <ToastContainer />
           </div>
         </div>
       </div>

@@ -2,6 +2,9 @@ import "./DoctorRegistration.css";
 import { context } from "../../context/SharedData";
 import { useContext } from "react";
 import { useState, useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import {specializations} from "../../constants/constants";
 
 const DoctorRegistration = () => {
   const sharedData = useContext(context);
@@ -52,7 +55,7 @@ const DoctorRegistration = () => {
 
   const clickHandler = (event) => {
     if (parseInt(doctor["age"], 10) < 17 || parseInt(doctor["age"], 10) > 100) {
-      alert(
+      toast(
         "Legal adults allowed and above 100 of age too old for the website!"
       );
     }else if (Object.values(doctor).includes("") != true && Object.values(doctorLogin).includes("") != true){
@@ -62,7 +65,7 @@ const DoctorRegistration = () => {
       alert("You have been registered successfully!");
       window.location = "/";
     }else{
-      alert("We do not believe in empty forms!");
+      toast("We do not believe in empty forms!");
     }
   };
 
@@ -136,16 +139,21 @@ const DoctorRegistration = () => {
                 <label for="specialization" className="form-label">
                   Specialization
                 </label>
-                <input
-                  type="text"
-                  className="form-control"
+                <select
+                  className="form-select"
                   id="specialization"
-                  placeholder="Your specialization"
                   name="specialization"
                   required
                   aria-required
                   onChange={changeHandler}
-                />
+                >
+                  <option disabled selected>
+                    Choose
+                  </option>
+                  {specializations.map((value) => (
+                    <option value={value.toLowerCase()}>{value}</option>
+                  ))}
+                </select>
               </div>
 
               <div className="mb-3 mt-3">
@@ -257,6 +265,7 @@ const DoctorRegistration = () => {
               >
                 Sign Up
               </button>
+              <ToastContainer/>
             </form>
           </div>
         </div>

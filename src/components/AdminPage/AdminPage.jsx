@@ -7,6 +7,8 @@ import { context } from "../../context/SharedData";
 import { useContext } from "react";
 import { useState, useEffect } from "react";
 import { Footer } from "../Footer/Footer";
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const AdminPage = (props) => {
   const sharedData = useContext(context);
@@ -110,6 +112,7 @@ const AdminPage = (props) => {
       );
       if (response.ok) {
         console.log("Patient deleted successfully");
+        toast("Patient data deleted successfully!");
         patients.filter((patient) => patient.id !== id);
       } else {
         console.error("Error deleting patient:", response.statusText);
@@ -126,6 +129,7 @@ const AdminPage = (props) => {
       });
       if (response.ok) {
         console.log("Doctor data deleted successfully");
+        toast("Doctor data deleted successfully!");
         doctors.filter((doctor) => doctor.id !== id);
       } else {
         console.error("Error deleting doctor:", response.statusText);
@@ -146,6 +150,7 @@ const AdminPage = (props) => {
       });
       if (response.ok) {
         console.log("Doctor status updated successfully");
+        toast("Doctor data updated successfully!");
         console.log(doctorToggle);
         doctors.map((doctor) => (doctor.id === id ? doctorToggle : doctor));
       } else {
@@ -212,7 +217,7 @@ const AdminPage = (props) => {
     <>
       <div id="wallpaper" style={{ overflowY: "scroll" }}>
         <AdminNavbar />
-
+        <ToastContainer/>
         <div id="adminStats">
           <div>
             <h4 id="statsText" className="frosted">
