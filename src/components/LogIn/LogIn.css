@@ -8,9 +8,9 @@
 
   height: 100vh;
   width: 100vw;
-  background-size: cover;
-  background-repeat: no-repeat;
   background: url(../../assets/images/3.png);
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
 
   padding: 2rem;
   overflow: hidden;

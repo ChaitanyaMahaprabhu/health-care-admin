@@ -1,5 +1,6 @@
 import "./Navbar.css";
 import { VideoBar } from "./VideoBar";
+import {Link} from 'react-router-dom';
 
 const DoctorNavbar = (props) => {
   const name = "Magnus";
@@ -12,13 +13,13 @@ const DoctorNavbar = (props) => {
           <div id="navOptions">
             <ul id="options">
               <li>
-                <a href="#">Statistics</a>
+                <a href="#">Request Activation</a>
               </li>
               <li>
-                <a href="#">Data</a>
+                <a href="#">Update Data</a>
               </li>
               <li>
-                <a href="#">Contact Us</a>
+                <Link to = '/'><a>Log Out</a></Link>
               </li>
             </ul>
           </div>

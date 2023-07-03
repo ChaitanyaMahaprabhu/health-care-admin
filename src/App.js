@@ -14,6 +14,7 @@ import {DataContext, SharedData} from './context/SharedData';
 import { DoctorPage } from './components/DoctorPage/DoctorPage';
 import {NotFound} from './components/NotFound/NotFound';
 import { PatientPage } from './components/PatientPage/PatientPage';
+import { Concepts } from './components/Additional/Concepts';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path = '/PatientRegistration' element = {<PatientRegistration/>} />
         <Route path = '/DoctorRegistration' element = {<DoctorRegistration/>} />
         <Route path = '/Login' element = {<LogIn/>} />
+        <Route path = '/Concepts' element = {<Concepts/>} />
         <Route path = '/AdminPage' element = {<AdminPage/>} />
         <Route path = '/DoctorPage' element = {<DoctorPage/>} />
         <Route path = '/PatientPage' element = {<PatientPage/>} />

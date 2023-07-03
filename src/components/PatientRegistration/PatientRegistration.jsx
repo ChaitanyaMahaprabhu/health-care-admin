@@ -2,9 +2,9 @@ import "./PatientRegistration.css";
 import { context } from "../../context/SharedData";
 import { useContext } from "react";
 import { useState, useEffect } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {specializations} from "../../constants/constants";
+import { specializations } from "../../constants/constants";
 
 const PatientRegistration = () => {
   const sharedData = useContext(context);
@@ -48,13 +48,16 @@ const PatientRegistration = () => {
       toast(
         "Legal adults allowed and above 100 of age too old for the website!"
       );
-    }else if (Object.values(patient).includes("") != true && Object.values(patientLogin).includes("") != true){
+    } else if (
+      Object.values(patient).includes("") != true &&
+      Object.values(patientLogin).includes("") != true
+    ) {
       console.log(patient);
       post();
       postUser();
       alert("You have been registered successfully!");
       window.location = "/";
-    }else{
+    } else {
       toast("We do not believe in empty forms!");
     }
   };
@@ -226,14 +229,24 @@ const PatientRegistration = () => {
                 </div>
               </div>
 
-              <button
-                type="button"
-                className="btn btn-primary ps-4 pe-4"
-                onClick={clickHandler}
-              >
-                Sign Up
-              </button>
-              <ToastContainer/>
+              <div id="buttons">
+                <button
+                  type="button"
+                  className="btn btn-primary ps-4 pe-4"
+                  onClick={clickHandler}
+                >
+                  Sign Up
+                </button>
+
+                <button
+                  type="button"
+                  className="btn btn-secondary ps-4 pe-4"
+                  onClick={() => (window.location = "/")}
+                >
+                  To Home
+                </button>
+              </div>
+              <ToastContainer />
             </form>
           </div>
         </div>
