@@ -1,4 +1,6 @@
 import "./DoctorInfo.css";
+import { Footer } from "../Footer/Footer";
+
 import {
   DoctorCardAvailable,
   DoctorCardUnavailable,
@@ -8,13 +10,18 @@ const PatientPage = () => {
   return (
     <>
       <div id="wall" style={{ overflowY: "scroll" }}>
-        <div id = "infoDesc" className = "frosted">
-            <h1 style = {{fontSize: '3rem'}}>The best in the world, at your service.</h1>
-            <h4>Choose the doctors you want to consult</h4>
+        <div id="infoDesc" className="frosted">
+          <h1 style={{ fontSize: "3rem" }}>
+            The best in the world, at your service.
+          </h1>
+          <h4>Choose the doctors you want to consult</h4>
         </div>
-        <div id = "docInfo">
-            {arr.map(value => <DoctorCardAvailable/>)}
+        <div id="docInfo">
+          {arr.map((value) => (
+            <DoctorCardAvailable />
+          ))}
         </div>
+        <Footer />
       </div>
     </>
   );

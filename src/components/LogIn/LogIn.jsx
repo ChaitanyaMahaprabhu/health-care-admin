@@ -145,9 +145,14 @@ const LogIn = () => {
                 </select>
               </div>
 
-              <button type="button" className="btn btn-primary ps-4 pe-4 mt-3" onClick={clickHandler}>
+              <button type="button" className="btn btn-success ps-4 pe-4 mt-3" onClick={clickHandler}>
                 Enter
               </button>
+              <Link to = "/">
+              <button type="button" className="btn btn-secondary ps-4 pe-4 mt-3">
+                Home
+              </button>
+              </Link>
             </form>
           </div>
         </div>

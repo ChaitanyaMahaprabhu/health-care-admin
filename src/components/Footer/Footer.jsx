@@ -1,4 +1,5 @@
 import './Footer.css';
+import {Link} from 'react-router-dom';
 
 const Footer = () => {
   const currentDate = new Date();
@@ -14,6 +15,7 @@ const Footer = () => {
 
           <div>
           <h5>Today - {formattedDate} 📅</h5>
+          <h5 id = "linkToHome"><Link to = '/'>Go to home</Link></h5>
           </div>
         </div>
       </footer>
