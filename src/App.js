@@ -3,7 +3,6 @@ import { AdminPage } from './components/AdminPage/AdminPage';
 import { Form, Route, Routes } from "react-router-dom";
 import { Choices } from './components/Choices/Choices';
 import { DoctorCard, DoctorCardAvailable, DoctorCardUnavailable } from './components/DoctorCard/DoctorCard';
-import { DoctorInfo } from './components/DoctorInfo/DoctorInfo';
 import { DoctorRegistration } from './components/DoctorRegistration/DoctorRegistration';
 import {Home} from './components/Home/Home';
 import { LogIn } from './components/LogIn/LogIn';
@@ -14,6 +13,7 @@ import { SingleStats } from './components/Statistics/SingleStats';
 import {DataContext, SharedData} from './context/SharedData';
 import { DoctorPage } from './components/DoctorPage/DoctorPage';
 import {NotFound} from './components/NotFound/NotFound';
+import { PatientPage } from './components/PatientPage/PatientPage';
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
         <Route path = '/Login' element = {<LogIn/>} />
         <Route path = '/AdminPage' element = {<AdminPage/>} />
         <Route path = '/DoctorPage' element = {<DoctorPage/>} />
+        <Route path = '/PatientPage' element = {<PatientPage/>} />
         <Route path = '*' element = {<NotFound/>} />
       </Routes>
     </SharedData>

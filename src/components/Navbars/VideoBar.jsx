@@ -1,10 +1,11 @@
-import './Navbar.css';
+import "./Navbar.css";
 const VideoBar = () => {
-    return(
-        <>
-            <div id = "videoBar"></div>
-        </>
-    );
-}
+  return (
+    <>
+      <div id="videoBar">
+      </div>
+    </>
+  );
+};
 
-export {VideoBar};
+export { VideoBar };

@@ -1,7 +1,7 @@
 import "./LogIn.css";
 import { context } from "../../context/SharedData";
 import { useContext, useEffect, useState } from "react";
-import {Link} from 'react-router-dom';
+import {Link, redirect} from 'react-router-dom';
 
 const LogIn = () => {
   const sharedData = useContext(context);
@@ -11,6 +11,33 @@ const LogIn = () => {
     password: "",
     role: "",
   });
+
+  const redirect = () => {
+    window.location = `/${userLogin.role}Page`;
+  };
+
+  const post = () => {
+    fetch("https://localhost:7261/api/Token1", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(userLogin),
+    })
+      .then((res) => {
+        return res;
+      })
+      .then((resp) => {
+        if(resp.status >= 200 && resp.status < 300){
+          alert("Logged in successfully!");
+          redirect();
+        }
+        else{
+          alert("Wrong credentials entered!");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   
   const changeHandler = (event) => {
       setUserLogin((prev) => ({
@@ -20,7 +47,13 @@ const LogIn = () => {
     }
 
   const clickHandler = (event) => {
+    if (Object.values(userLogin).includes("") != true){
     console.log(userLogin);
+    post();
+    }
+    else{
+      alert("Login requires all data!");
+    }
   }
 
   return (
