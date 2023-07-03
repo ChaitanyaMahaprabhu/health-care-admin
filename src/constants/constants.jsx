@@ -41,6 +41,9 @@ export const concepts = [
   ":hover",
   "Spread Operator",
   ".NET Core",
+  "PDF Object",
+  "Animation",
+  "Transition"
 ];
 
 export const checklist = [
