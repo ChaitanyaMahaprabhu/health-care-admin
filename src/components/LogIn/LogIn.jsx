@@ -1,6 +1,8 @@
 import "./LogIn.css";
 import { context } from "../../context/SharedData";
 import { useContext, useEffect, useState } from "react";
+import {Link} from 'react-router-dom';
+
 const LogIn = () => {
   const sharedData = useContext(context);
   const [userLogin, setUserLogin] = useState({

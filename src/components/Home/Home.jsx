@@ -1,4 +1,5 @@
 import "./Home.css";
+import {Link} from 'react-router-dom';
 
 const Home = (props) => {
   return (
@@ -21,10 +22,10 @@ const Home = (props) => {
         </div>
 
         <div id="signUp" className ="frosted">
-          <h1><a href = "/Choices">Join Us</a></h1>
+          <h1><Link to = "/Choices">Join Us</Link></h1>
         </div>
         <div id="logIn" className ="frosted">
-          <h1><a href = "/Login">Step In</a></h1>
+          <h1><Link to = "/Login">Step In</Link></h1>
         </div>
       </div>
     </>

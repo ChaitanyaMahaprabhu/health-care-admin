@@ -13,7 +13,6 @@ import { DoubleStats } from './components/Statistics/DoubleStats';
 import { SingleStats } from './components/Statistics/SingleStats';
 import {DataContext, SharedData} from './context/SharedData';
 import { DoctorPage } from './components/DoctorPage/DoctorPage';
-import { LogIn2 } from './components/LogIn/LogIn2';
 import {NotFound} from './components/NotFound/NotFound';
 
 function App() {

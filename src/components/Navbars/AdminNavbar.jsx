@@ -1,5 +1,7 @@
 import "./Navbar.css";
 import { VideoBar } from "./VideoBar";
+import {Link} from 'react-router-dom';
+
 const AdminNavbar = (props) => {
   const name = 'Magnus';
   return (
@@ -21,6 +23,9 @@ const AdminNavbar = (props) => {
               </li>
               <li>
                 <a href="#getDoctorById">Data using ID</a>
+              </li>
+              <li>
+                <Link to = '/'><a>Log Out</a></Link>
               </li>
             </ul>
           </div>

@@ -1,4 +1,6 @@
 import "./Choices.css";
+import {Link} from 'react-router-dom';
+
 const Choices = () => {
   return (
     <>
@@ -11,10 +13,10 @@ const Choices = () => {
         </div>
         <div class="choices">
           <div class="frosted doctor">
-            <h1><a href = "/DoctorRegistration">I am a Doctor</a></h1>
+            <h1><Link to = "/DoctorRegistration">I am a Doctor</Link></h1>
           </div>
           <div class="frosted patient">
-            <h1><a href = "/PatientRegistration">I am a Patient</a></h1>
+            <h1><Link to = "/PatientRegistration">I am a Patient</Link></h1>
           </div>
         </div>
       </div>
