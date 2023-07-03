@@ -25,9 +25,6 @@ const AdminNavbar = (props) => {
                 <a href="#getDoctorById">Data using ID</a>
               </li>
               <li>
-                <Link to="/Concepts">Concepts Used</Link>
-              </li>
-              <li>
                 <Link to = '/'><a>Log Out</a></Link>
               </li>
             </ul>

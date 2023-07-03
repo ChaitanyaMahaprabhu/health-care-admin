@@ -19,9 +19,6 @@ const DoctorNavbar = (props) => {
                 <a href="#">Update Data</a>
               </li>
               <li>
-                <Link to="/Concepts">Concepts Used</Link>
-              </li>
-              <li>
                 <Link to = '/'><a>Log Out</a></Link>
               </li>
             </ul>

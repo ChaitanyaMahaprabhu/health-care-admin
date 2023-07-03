@@ -1,0 +1,42 @@
+#pdf {
+  margin-top: 2rem;
+}
+
+#checkWallpaper {
+  height: 100%;
+  width: 100vw;
+  background: url(../../assets/images/3.png);
+  background-size: stretch;
+
+  padding: 2rem;
+  scroll-behavior: overflow;
+
+  font-family: "Trirong";
+  color: white;
+
+  overflow-x: hidden;
+}
+
+#checklist {
+  margin-top: 2rem;
+}
+
+.pulsate h1{
+  transition: all 0.5s ease-in;
+  animation: pulsate 2s ease-in infinite;
+  padding: 1rem;
+}
+
+@keyframes pulsate {
+  0%{
+    background-color:tomato;
+  }
+
+  50%{
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  100%{
+    background-color: tomato;
+  }
+}

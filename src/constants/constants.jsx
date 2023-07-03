@@ -42,3 +42,11 @@ export const concepts = [
   "Spread Operator",
   ".NET Core",
 ];
+
+export const checklist = [
+  "Secure authentication mechanism",
+  "Registration and Login for doctors and patients",
+  "Doctor activation",
+  "Role-based access control",
+  "Intuitive user interface"
+];
