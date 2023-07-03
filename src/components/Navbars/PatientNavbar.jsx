@@ -2,12 +2,11 @@ import "./Navbar.css";
 import { VideoBar } from "./VideoBar";
 
 const PatientNavbar = (props) => {
-  const name = "Magnus";
   return (
     <>
         <VideoBar />
         <div id="navbar" className="frostedNavbar">
-          <h1>Hello {name}!</h1>
+          <h1>Good to see you!</h1>
 
           <div id="navOptions">
             <ul id="options">
