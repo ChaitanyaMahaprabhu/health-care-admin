@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const LogIn = () => {
   const sharedData = useContext(context);
+  const setUsername = sharedData.setUsername;
 
   const [userLogin, setUserLogin] = useState({
     userName: "",
@@ -16,7 +17,7 @@ const LogIn = () => {
   });
 
   const redirect = () => {
-    window.location = `/${userLogin.role}Page`;
+    window.location = `/${userLogin.role}Page/${userLogin.userName}`;
   };
 
   const post = () => {
@@ -30,8 +31,7 @@ const LogIn = () => {
       })
       .then((resp) => {
         if (resp.status >= 200 && resp.status < 300) {
-          sharedData.setUsername(userLogin.userName);
-          sessionStorage.setItem("token", resp.token);
+          setUsername(userLogin.userName);
           alert("Logged in successfully!");
           redirect();
         } else {

@@ -23,6 +23,7 @@ export const concepts = [
   "useState()",
   "Form Validation",
   "Hooks",
+  "Google API fonts",
   "Lifecycle Methods",
   "C#",
   "Event Handling",

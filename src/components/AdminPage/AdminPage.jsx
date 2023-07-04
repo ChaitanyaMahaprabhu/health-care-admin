@@ -9,9 +9,11 @@ import { useState, useEffect } from "react";
 import { Footer } from "../Footer/Footer";
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { useParams } from "react-router-dom";
 
 const AdminPage = (props) => {
   const sharedData = useContext(context);
+  const {username} = useParams();
 
   const [doctorId, setDoctorId] = useState("");
   const [patientId, setPatientId] = useState("");
@@ -216,7 +218,7 @@ const AdminPage = (props) => {
   return (
     <>
       <div id="adminWallpaper" style={{ overflowY: "scroll" }}>
-        <AdminNavbar />
+        <AdminNavbar username = {username}/>
         <ToastContainer/>
         <div id="adminStats">
           <div>

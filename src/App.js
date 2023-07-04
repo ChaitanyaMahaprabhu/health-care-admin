@@ -28,9 +28,9 @@ function App() {
         <Route path = '/Login' element = {<LogIn/>} />
         <Route path = '/Concepts' element = {<Concepts/>} />
         <Route path = '/Checklist' element = {<CheckList/>} />
-        <Route path = '/AdminPage' element = {<AdminPage/>} />
-        <Route path = '/DoctorPage' element = {<DoctorPage/>} />
-        <Route path = '/PatientPage' element = {<PatientPage/>} />
+        <Route path = '/AdminPage:username' element = {<AdminPage/>} />
+        <Route path = '/DoctorPage/:username' element = {<DoctorPage/>} />
+        <Route path = '/PatientPage/:username' element = {<PatientPage/>} />
         <Route path = '*' element = {<NotFound/>} />
       </Routes>
     </SharedData>

@@ -2,21 +2,36 @@ import "./DoctorPage.css";
 import { DoctorNavbar } from "../../components/Navbars/DoctorNavbar";
 import { useContext, useEffect, useState } from "react";
 import { context } from "../../context/SharedData";
+import { useParams } from "react-router-dom";
 
-const DoctorPage = (props) => {
+const DoctorPage = () => {
   const sharedData = useContext(context);
+  const { username } = useParams();
+  const [doctorData, setDoctorData] = useState({});
+
+  useEffect(() => {
+    const foundDoctor = sharedData.doctors.find(doctor => doctor.userName === username);
+    if (foundDoctor) {
+      setDoctorData(foundDoctor);
+      console.log(foundDoctor);
+    }
+  }, [sharedData.doctors, username]);
 
   return (
     <>
-      <div id="wallpaper" style={{ overflowY: "scroll" }}>
-        <DoctorNavbar />
+      <div id="docWallpaper" style={{ overflowY: "scroll" }}>
+        <DoctorNavbar username={username} />
 
         <div id="doctorStatus" className="frosted">
-          <h1>You Are Inactive</h1>
+          <h1>You Are <span id = "stat" style = {{backgroundColor: `${doctorData.status === 'active' ? 'green' : 'red'}`}}>{doctorData.status}.</span></h1>
           <button className="btn btn-warning btn-lg">Request Activation</button>
         </div>
 
-        <div className="container-fluid bg-light" id="getDoctors" style = {{marginTop: '2rem'}}>
+        <div
+          className="container-fluid bg-light"
+          id="getDoctors"
+          style={{ marginTop: "2rem" }}
+        >
           <table className="table">
             <thead>
               <tr>
@@ -63,7 +78,9 @@ const DoctorPage = (props) => {
                       Choose
                     </option>
                     {sharedData.genders.map((value) => (
-                      <option name={value}>{value}</option>
+                      <option key={value} value={value}>
+                        {value}
+                      </option>
                     ))}
                   </select>
                 </td>
