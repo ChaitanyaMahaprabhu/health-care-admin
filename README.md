@@ -1,3 +1,7 @@
+![BB2_Home](https://github.com/chaitanya-mahaprabhu-kanini/health-care-admin/assets/125178445/5dbbb1e1-6fdb-45e6-9504-b0ae1015f993)
+![BB2_Choices](https://github.com/chaitanya-mahaprabhu-kanini/health-care-admin/assets/125178445/807ff7cc-3fb9-4d83-90e1-7f42ae79f97d)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
