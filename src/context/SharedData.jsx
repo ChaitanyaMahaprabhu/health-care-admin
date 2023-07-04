@@ -9,6 +9,8 @@ const SharedData = (props) => {
     const [doctors, setDoctors] = useState([]);
     const [patients, setPatients] = useState([]);
 
+    const [username, setUsername] = useState ("");
+
     useEffect(() => {
         getDoctors();
         getPatients();
@@ -43,16 +45,18 @@ const SharedData = (props) => {
         }
       };
       
-    const data = {
+    const sharedData = {
         users: users,
         genders: genders,
         doctors: doctors,
-        patients: patients
+        patients: patients,
+        username: username,
+        setUsername: setUsername
     };
     
     return(
         <>
-            <context.Provider value = {data}>
+            <context.Provider value = {sharedData}>
                 {props.children}
             </context.Provider>
         </>

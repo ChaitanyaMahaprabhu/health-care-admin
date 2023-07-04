@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const LogIn = () => {
   const sharedData = useContext(context);
+
   const [userLogin, setUserLogin] = useState({
     userName: "",
     userEmail: "",
@@ -29,7 +30,8 @@ const LogIn = () => {
       })
       .then((resp) => {
         if (resp.status >= 200 && resp.status < 300) {
-          toast("Logged in successfully!");
+          sharedData.setUsername(userLogin.userName);
+          alert("Logged in successfully!");
           redirect();
         } else {
           toast("Wrong credentials entered!");

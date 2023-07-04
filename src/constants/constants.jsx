@@ -12,10 +12,12 @@ export const specializations = [
 ];
 
 export const concepts = [
+  "Bootstrap 5",
   "JSX",
   "Clean Folder Structure",
   "Toastify",
   "API Creation",
+  "Responsiveness",
   "backdrop-filter",
   "Bearer Token",
   "useState()",
@@ -51,5 +53,7 @@ export const checklist = [
   "Registration and Login for doctors and patients",
   "Doctor activation",
   "Role-based access control",
-  "Intuitive user interface"
+  "Intuitive user interface",
+  "Form Validation",
+  "Regular commits in git repo"
 ];

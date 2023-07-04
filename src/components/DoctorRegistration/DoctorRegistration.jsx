@@ -8,6 +8,7 @@ import { specializations } from "../../constants/constants";
 
 const DoctorRegistration = () => {
   const sharedData = useContext(context);
+  const [flag, setFlag] = useState(true);
 
   const [doctor, setDoctor] = useState({
     name: "",
@@ -54,11 +55,19 @@ const DoctorRegistration = () => {
   };
 
   const clickHandler = (event) => {
+    for(let doc of sharedData.doctors){
+      if(doc.userName === doctorLogin.userName){
+        setFlag(false);
+      }
+    }
+
     if (parseInt(doctor["age"], 10) < 17 || parseInt(doctor["age"], 10) > 100) {
       toast(
         "Legal adults allowed and above 100 of age too old for the website!"
       );
-    } else if (
+    } else if(flag === true){
+      toast("Username not available 😶");
+    }else if (
       Object.values(doctor).includes("") != true &&
       Object.values(doctorLogin).includes("") != true
     ) {

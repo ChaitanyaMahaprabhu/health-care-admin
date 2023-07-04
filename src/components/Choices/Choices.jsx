@@ -8,7 +8,7 @@ const Choices = () => {
         <div class="choicesFrosted explain">
           <h1 style={{ fontSize: "4rem" }}>Bonne Santé</h1>
           <h1>~</h1>
-          <h4>Let's get you signed up</h4>
+          <h3>Let's get you signed up</h3>
           <h4>Choose one of the below options to proceed to the next step</h4>
         </div>
         <div class="choices">

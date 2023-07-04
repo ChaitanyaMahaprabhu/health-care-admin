@@ -88,7 +88,7 @@ const DoctorCardUnavailable = (props) => {
           <h4>Age : {props.age}</h4>
         </div>
 
-        <button className="btn btn-primary btn-lg" disabled>
+        <button className="btn btn-danger btn-lg" disabled>
           Not Available
         </button>
       </div>
