@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Trirong|Manrope");
 
-#wallpaper {
+#choicesWallpaper {
   height: 100vh;
   width: 100vw;
-  background: url(../../assets/images/3.png);
+  background: url(../../assets/images/15.jpg);
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
 
@@ -14,7 +14,7 @@
   color: white;
 }
 
-.frosted {
+.choicesFrosted {
   border-radius: 1rem;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);

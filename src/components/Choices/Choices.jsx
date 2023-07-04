@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 const Choices = () => {
   return (
     <>
-      <div id="wallpaper" class="choiceWindow">
-        <div class="frosted explain">
+      <div id="choicesWallpaper" class="choiceWindow">
+        <div class="choicesFrosted explain">
           <h1 style={{ fontSize: "4rem" }}>Bonne Santé</h1>
           <h1>~</h1>
           <h4>Let's get you signed up</h4>
