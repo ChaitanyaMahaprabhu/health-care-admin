@@ -1,5 +1,8 @@
 ![BB2_Home](https://github.com/chaitanya-mahaprabhu-kanini/health-care-admin/assets/125178445/5dbbb1e1-6fdb-45e6-9504-b0ae1015f993)
 ![BB2_Choices](https://github.com/chaitanya-mahaprabhu-kanini/health-care-admin/assets/125178445/807ff7cc-3fb9-4d83-90e1-7f42ae79f97d)
+![BB2_Patient](https://github.com/chaitanya-mahaprabhu-kanini/health-care-admin/assets/125178445/705e5d58-4916-40f8-a014-fd4033c0370d)
+![BB2_PatientActive](https://github.com/chaitanya-mahaprabhu-kanini/health-care-admin/assets/125178445/6b78db66-9d6d-4ef7-8653-d90636333689)
+![BB2_Footer](https://github.com/chaitanya-mahaprabhu-kanini/health-care-admin/assets/125178445/72cacae6-3dfe-486f-8f5c-7238f8e3ebc1)
 
 
 # Getting Started with Create React App
