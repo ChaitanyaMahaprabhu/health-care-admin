@@ -2,10 +2,8 @@ import "./DoctorCard.css";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import image from "../../assets/images/1.png";
 
 const DoctorCardAvailable = (props) => {
-  const path = "../../assets/images/" + props.specialization + ".jpeg";
   const [doctor, setDoctor] = useState({
     id: props.id,
     name: `${props.name}`,
@@ -47,7 +45,7 @@ const DoctorCardAvailable = (props) => {
     <div id="doctorCard" className="frosted">
       <img
         id="doctorImage"
-        src={require(`../../assets/images/${props.specialization}.jpeg`)}
+        src={require(`../../assets/images/${props.specialization.toLowerCase()}.jpeg`)}
       ></img>
       <div id="doctorInfo">
         <div>

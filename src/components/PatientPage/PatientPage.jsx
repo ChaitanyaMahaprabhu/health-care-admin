@@ -8,8 +8,11 @@ import {
 } from "../DoctorCard/DoctorCard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {useParams} from 'react-router-dom';
+
 
 const PatientPage = () => {
+  const {username} = useParams();
   const sharedData = useContext(context);
   return (
     <>
@@ -18,7 +21,7 @@ const PatientPage = () => {
           <h1 style={{ fontSize: "3rem" }}>
             The best in the world, at your service.
           </h1>
-          <h4>Choose the doctors you want to consult</h4>
+          <h4>Choose the doctors you want to consult <i>{username}</i></h4>
         </div>
         <div id="docInfo">
           {sharedData.doctors.map((value) =>

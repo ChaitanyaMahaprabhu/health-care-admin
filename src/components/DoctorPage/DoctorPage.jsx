@@ -5,6 +5,7 @@ import { context } from "../../context/SharedData";
 import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {Footer} from '../Footer/Footer';
 
 const DoctorPage = () => {
   const sharedData = useContext(context);
@@ -215,6 +216,7 @@ const DoctorPage = () => {
           </table>
         </div>
         <ToastContainer />
+        <Footer/>
       </div>
     </>
   );

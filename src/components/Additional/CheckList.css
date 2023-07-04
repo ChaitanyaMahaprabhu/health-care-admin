@@ -24,7 +24,6 @@
 .pulsate h1{
   transition: all 0.5s ease-in;
   animation: pulsate 2s ease-in infinite;
-  padding: 1rem;
 }
 
 @keyframes pulsate {
@@ -39,4 +38,8 @@
   100%{
     background-color: tomato;
   }
+}
+
+#qr{
+  height: 20%;
 }

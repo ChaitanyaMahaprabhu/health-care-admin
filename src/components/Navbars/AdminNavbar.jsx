@@ -10,7 +10,7 @@ const AdminNavbar = (props) => {
     <>
         <VideoBar/>
         <div id="navbar" className="frostedNavbar">
-          <h1>Hello {props.username}</h1>
+          <h1 id = "capitalize">Hello {props.username}</h1>
 
           <div id="navOptions">
             <ul id="options">

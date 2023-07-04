@@ -12,15 +12,15 @@ const DoctorNavbar = (props) => {
     <>
         <VideoBar />
         <div id="navbar" className="frostedNavbar">
-          <h1>Hello {props.username}!</h1>
+          <h1 id = "capitalize">Hello {props.username}!</h1>
 
           <div id="navOptions">
             <ul id="options">
               <li>
-                <a href="#">Request Activation</a>
+                <a href="#doctorStatus">Request Activation</a>
               </li>
               <li>
-                <a href="#">Update Data</a>
+                <a href="#getDoctors">Update Data</a>
               </li>
               <li>
                 <Link to = '/'><a>Log Out</a></Link>

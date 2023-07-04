@@ -1,6 +1,5 @@
 export const specializations = [
   "Cardiology",
-  "Dermatology",
   "Endocrinology",
   "Gastroenterology",
   "Neurology",
@@ -16,6 +15,7 @@ export const concepts = [
   "JSX",
   "Clean Folder Structure",
   "Toastify",
+  "useParams",
   "API Creation",
   "Responsiveness",
   "backdrop-filter",
@@ -53,6 +53,8 @@ export const checklist = [
   "Secure authentication mechanism",
   "Registration and Login for doctors and patients",
   "Doctor activation",
+  "Request Activation (Doctor)",
+  "Update doctor data",
   "Role-based access control",
   "Intuitive user interface",
   "Form Validation",
