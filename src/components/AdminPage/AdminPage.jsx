@@ -177,6 +177,7 @@ const AdminPage = (props) => {
         gender: `${data.gender}`,
         specialization: `${data.specialization}`,
         experience: data.experience,
+        userName:  `${data.userName}`,
         request: "no",
         status: "inactive",
       });
@@ -188,6 +189,7 @@ const AdminPage = (props) => {
         gender: `${data.gender}`,
         specialization: `${data.specialization}`,
         experience: data.experience,
+        userName:  `${data.userName}`,
         request: "no",
         status: "active",
       });
