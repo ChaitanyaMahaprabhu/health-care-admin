@@ -376,6 +376,7 @@ const AdminPage = (props) => {
                 id="doctorID"
                 name="doctorID"
                 onChange={handleInputChange}
+                placeholder="Enter doctor ID"
                 value={doctorId}
               />
             </div>
@@ -422,6 +423,7 @@ const AdminPage = (props) => {
                 id="patientID"
                 name="patientID"
                 onChange={handleInputChange}
+                placeholder="Enter patient ID"
                 value={patientId}
               />
             </div>

@@ -8,7 +8,6 @@ import { specializations } from "../../constants/constants";
 
 const PatientRegistration = () => {
   const sharedData = useContext(context);
-  const [flag, setFlag] = useState(true);
 
   const [patient, setPatient] = useState({
     name: "",
@@ -43,9 +42,10 @@ const PatientRegistration = () => {
   };
 
   const clickHandler = (event) => {
-    for (let doc of sharedData.doctors) {
-      if (doc.userName === doctorLogin.userName) {
-        setFlag(false);
+    for (let pat of sharedData.accounts) {
+      if (pat.userName === patientLogin.userName) {
+        toast("Username not available 😶");
+        return;
       }
     }
 
@@ -56,8 +56,6 @@ const PatientRegistration = () => {
       toast(
         "Legal adults allowed and above 100 of age too old for the website!"
       );
-    } else if (flag === true) {
-      toast("Username not available 😶");
     } else if (
       Object.values(patient).includes("") != true &&
       Object.values(patientLogin).includes("") != true
@@ -132,6 +130,7 @@ const PatientRegistration = () => {
                   name="name"
                   required
                   aria-required
+                  autocomplete="off"
                   onChange={changeHandler}
                 />
               </div>
@@ -169,6 +168,7 @@ const PatientRegistration = () => {
                   name="age"
                   required
                   aria-required
+                  autocomplete="off"
                   onChange={changeHandler}
                 />
               </div>
@@ -185,6 +185,7 @@ const PatientRegistration = () => {
                   name="ailment"
                   required
                   aria-required
+                  autocomplete="off"
                   onChange={changeHandler}
                 />
               </div>
@@ -200,6 +201,7 @@ const PatientRegistration = () => {
                   name="userEmail"
                   required
                   aria-required
+                  autocomplete="off"
                   pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                   onChange={changeHandler}
                 />
@@ -218,6 +220,7 @@ const PatientRegistration = () => {
                     name="userName"
                     required
                     aria-required
+                    autocomplete="off"
                     onChange={changeHandler}
                   />
                 </div>
@@ -234,6 +237,7 @@ const PatientRegistration = () => {
                     name="password"
                     required
                     aria-required
+                    autocomplete="off"
                     onChange={changeHandler}
                   />
                 </div>

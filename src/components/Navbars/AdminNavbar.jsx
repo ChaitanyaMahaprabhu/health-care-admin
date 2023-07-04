@@ -10,7 +10,7 @@ const AdminNavbar = (props) => {
     <>
         <VideoBar/>
         <div id="navbar" className="frostedNavbar">
-          <h1>Hello {sharedData.username}</h1>
+          <h1>Good to see you!</h1>
 
           <div id="navOptions">
             <ul id="options">

@@ -8,6 +8,8 @@ const SharedData = (props) => {
 
     const [doctors, setDoctors] = useState([]);
     const [patients, setPatients] = useState([]);
+    const [accounts, setAccounts] = useState([]);
+
 
     const [username, setUsername] = useState ("");
 
@@ -20,6 +22,20 @@ const SharedData = (props) => {
       const getDoctors = async () => {
         try {
           const response = await fetch("https://localhost:7261/api/Doctors");
+          if (response.ok) {
+            const data = await response.json();
+            setDoctors(data);
+          } else {
+            console.error("Error fetching doctors:", response.statusText);
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      };
+
+      const getAccounts = async () => {
+        try {
+          const response = await fetch("https://localhost:7261/api/Users");
           if (response.ok) {
             const data = await response.json();
             setDoctors(data);
@@ -51,7 +67,8 @@ const SharedData = (props) => {
         doctors: doctors,
         patients: patients,
         username: username,
-        setUsername: setUsername
+        setUsername: setUsername,
+        accounts: accounts
     };
     
     return(

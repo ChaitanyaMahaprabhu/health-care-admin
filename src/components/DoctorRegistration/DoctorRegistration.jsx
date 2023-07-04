@@ -8,7 +8,6 @@ import { specializations } from "../../constants/constants";
 
 const DoctorRegistration = () => {
   const sharedData = useContext(context);
-  const [flag, setFlag] = useState(true);
 
   const [doctor, setDoctor] = useState({
     name: "",
@@ -55,19 +54,16 @@ const DoctorRegistration = () => {
   };
 
   const clickHandler = (event) => {
-    for(let doc of sharedData.doctors){
-      if(doc.userName === doctorLogin.userName){
-        setFlag(false);
+    for (let doc of sharedData.accounts) {
+      if (doc.userName === doctorLogin.userName) {
+        toast("Username not available 😶");
+        return;
       }
     }
 
-    if (parseInt(doctor["age"], 10) < 17 || parseInt(doctor["age"], 10) > 100) {
-      toast(
-        "Legal adults allowed and above 100 of age too old for the website!"
-      );
-    } else if(flag === true){
-      toast("Username not available 😶");
-    }else if (
+    if (parseInt(doctor["age"], 10) < 28 || parseInt(doctor["age"], 10) > 100) {
+      toast("[Age > 27] allowed and above 100 of age too old for the website!");
+    } else if (
       Object.values(doctor).includes("") != true &&
       Object.values(doctorLogin).includes("") != true
     ) {
@@ -143,6 +139,7 @@ const DoctorRegistration = () => {
                   name="name"
                   required
                   aria-required
+                  autocomplete="off"
                   onChange={changeHandler}
                 />
               </div>
@@ -201,6 +198,7 @@ const DoctorRegistration = () => {
                   name="age"
                   required
                   aria-required
+                  autocomplete="off"
                   onChange={changeHandler}
                 />
               </div>
@@ -217,6 +215,7 @@ const DoctorRegistration = () => {
                   name="experience"
                   required
                   aria-required
+                  autocomplete="off"
                   onChange={changeHandler}
                 />
               </div>
@@ -232,6 +231,7 @@ const DoctorRegistration = () => {
                   name="userEmail"
                   required
                   aria-required
+                  autocomplete="off"
                   onChange={changeHandler}
                 />
               </div>
@@ -249,6 +249,7 @@ const DoctorRegistration = () => {
                     name="userName"
                     required
                     aria-required
+                    autocomplete="off"
                     onChange={changeHandler}
                   />
                 </div>
@@ -265,6 +266,7 @@ const DoctorRegistration = () => {
                     name="password"
                     required
                     aria-required
+                    autocomplete="off"
                     onChange={changeHandler}
                   />
                 </div>

@@ -31,6 +31,7 @@ const LogIn = () => {
       .then((resp) => {
         if (resp.status >= 200 && resp.status < 300) {
           sharedData.setUsername(userLogin.userName);
+          sessionStorage.setItem("token", resp.token);
           alert("Logged in successfully!");
           redirect();
         } else {
