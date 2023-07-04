@@ -26,7 +26,7 @@ namespace CourseAdminReact.Controllers
 		{
 			if (_userData != null && _userData.UserEmail != null && _userData.Password != null)
 			{
-				var user = await GetUser(_userData.UserEmail, _userData.Password);
+				var user = await GetUser(_userData.UserEmail, _userData.Password, _userData.Role);
 
 				if (user != null)
 				{
@@ -64,9 +64,9 @@ namespace CourseAdminReact.Controllers
 			}
 		}
 
-		private async Task<User> GetUser(string email, string password)
+		private async Task<User> GetUser(string email, string password, string role)
 		{
-			return await _context.Users.FirstOrDefaultAsync(u => u.UserEmail == email && u.Password == password);
+			return await _context.Users.FirstOrDefaultAsync(u => u.UserEmail == email && u.Password == password && u.Role == role);
 		}
 	}
 }

@@ -16,6 +16,7 @@ const SharedData = (props) => {
     useEffect(() => {
         getDoctors();
         getPatients();
+        getAccounts();
       }, []);
       
       
@@ -38,7 +39,7 @@ const SharedData = (props) => {
           const response = await fetch("https://localhost:7261/api/Users");
           if (response.ok) {
             const data = await response.json();
-            setDoctors(data);
+            setAccounts(data);
           } else {
             console.error("Error fetching doctors:", response.statusText);
           }
